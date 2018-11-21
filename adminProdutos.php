@@ -1,0 +1,1 @@
+<!-- página para gerenciar o estoque e o mostruário -->

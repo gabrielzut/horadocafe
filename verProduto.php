@@ -1,0 +1,1 @@
+<!-- Página que mostra os detalhes de um produto e a parte para dar feedback dele -->
