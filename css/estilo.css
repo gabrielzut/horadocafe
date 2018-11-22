@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  height: 100%; 
+  display: grid;
+}
+
+.pagina100{
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.titles{
+  font-family: "Verdana";
+  font-weight: bold;
+  font-size: 30px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  padding-top: 15px;
+}
