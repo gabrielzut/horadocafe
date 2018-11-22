@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS Produto;
 CREATE TABLE IF NOT EXISTS Usuario (
 	email VARCHAR(128),
 	nome VARCHAR(128) NOT NULL,
-	senha VARCHAR(64) NOT NULL,
+	senha VARCHAR(256) NOT NULL,
 	PRIMARY KEY(email)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
@@ -25,11 +25,18 @@ CREATE TABLE IF NOT EXISTS Produto (
 CREATE TABLE IF NOT EXISTS Pedido (
     id INT AUTO_INCREMENT,
     emailUsuario VARCHAR(128) NOT NULL,
-    idProduto INT NOT NULL,
-    quantidade INT NOT NULL,
+    descricao VARCHAR(128),
     data DATETIME NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(emailUsuario) REFERENCES Usuario(email),
+    FOREIGN KEY(emailUsuario) REFERENCES Usuario(email)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+CREATE TABLE IF NOT EXISTS Pedido_Produto (
+    idPedido INT NOT NULL,
+    idProduto INT NOT NULL,
+    quantidade INT,
+    PRIMARY KEY(idPedido,idProduto),
+    FOREIGN KEY(idPedido) REFERENCES Pedido(id),
     FOREIGN KEY(idProduto) REFERENCES Produto(id)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 

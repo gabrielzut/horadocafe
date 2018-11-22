@@ -3,7 +3,8 @@
 
     $usuario['email'] = $POST['email'];
     $usuario['nome'] = $POST['nome'];
-    $usuario['senha'] = $POST['senha'];
+    $senha = md5($POST['senha']);
+    $usuario['senha'] = $senha;
 
     $usuarioDAO = new UsuarioDAO();
     $usuarioDAO->insert($usuario);

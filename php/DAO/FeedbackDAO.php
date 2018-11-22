@@ -47,7 +47,7 @@
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
-            return lerResultado($resultado);
+            return lerResultado($resultado)[0];
         }
     }
 ?>
