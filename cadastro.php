@@ -17,11 +17,11 @@
       <div class="container h-100">
    	    <div class="row h-100 justify-content-center align-items-center">
       		<div class="col-4 border border-primary rounded mt-3">
-                <center><br><h2 class="titles">Cadastro</h2></center>
+                <h2 class="titles text-center mt-4">Cadastro</h2>
                 <div class="modal-body">		
                   <div class="form-group">
                     <label for="name" class="col-form-label">Nome</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nome de exibição" name="name">
+                    <input type="text" class="form-control" id="name" placeholder="Nome de exibição" name="nome">
                   </div>
 
                   <div class="form-group">
@@ -31,7 +31,7 @@
 
                   <div class="form-group">
                     <label for="senhacadastro" class="col-form-label">Senha</label>
-                    <input type="password" class="form-control" id="senhacadastro" placeholder="Senha" name="password">
+                    <input type="password" class="form-control" id="senhacadastro" placeholder="Senha" name="senha">
                   </div>
 
                   <div class="form-group">

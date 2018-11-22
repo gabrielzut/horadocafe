@@ -4,9 +4,9 @@
     $imagem = $_FILES['imagem'];
 
     if($imagem['type'] == "image/jpg" || $imagem['type'] == "image/jpeg" || $imagem['type'] == "image/png" || $imagem['type'] == "image/gif" || $imagem['type'] == "image/bmp"){
-        $produto['nome'] = $POST['nome'];
-        $produto['descricao'] = $POST['descricao'];
-        $produto['quantidade'] = $POST['quantidade'];
+        $produto['nome'] = $_POST['nome'];
+        $produto['descricao'] = $_POST['descricao'];
+        $produto['quantidade'] = $_POST['quantidade'];
         
         $nomeTemp = $imagem['tmp_name'];
         $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
