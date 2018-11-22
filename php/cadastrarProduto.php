@@ -14,7 +14,7 @@
         $produtoDAO = new ProdutoDAO();
         $arrayResultado = $produtoDAO->lastId();
 
-        $id = $arrayResultado[0]['auto_increment'];
+        $id = $ultimoId['auto_increment'];
         $produto['imagem'] = $id . "." . $extensao;
 
         move_uploaded_file($nomeTemp, './imgProduto/' . $produto['imagem']);
