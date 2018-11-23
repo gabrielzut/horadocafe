@@ -29,10 +29,11 @@
             desconectar($conexao);
         }
 
-        function listar(){
+        function listar($idProduto){
             $conexao = conectar();
-            $query = "SELECT * FROM Feedback;";
+            $query = "SELECT * FROM Feedback WHERE idProduto = ?;";
             $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"i",$idProduto);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 

@@ -11,11 +11,16 @@
         exit;
     }
 
+    $usuarioDAO = new UsuarioDAO();
+
+    if(count($usuarioDAO->get($usuario['email']) > 0)){
+        header('Location:../cadastro.php?msg=erroemail');
+    }
+
     $senhahash = md5($senha);
     $usuario['senha'] = $senhahash;
 
-    $usuarioDAO = new UsuarioDAO();
     $usuarioDAO->insert($usuario);
 
-    header('Location:../login.php?msg=sucesso')
+    header('Location:../login.php?msg=sucesso');
 ?>

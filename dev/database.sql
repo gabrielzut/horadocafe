@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS Usuario (
 	email VARCHAR(128),
 	nome VARCHAR(128) NOT NULL,
 	senha VARCHAR(256) NOT NULL,
+    admin TINYINT(1) DEFAULT 0,
 	PRIMARY KEY(email)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
@@ -53,3 +54,5 @@ CREATE TABLE IF NOT EXISTS Feedback (
 
 SET GLOBAL lc_time_names=pt_BR;
 SET NAMES utf8mb4;
+
+INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com",admin,admin,1);

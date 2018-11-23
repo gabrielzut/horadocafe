@@ -13,6 +13,7 @@
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['senha'] = $usuario['senha'];
+        $_SESSION['admin'] = $usuario['admin'];
 
         header('Location:../index.php');
     }else{

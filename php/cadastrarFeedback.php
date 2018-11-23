@@ -11,5 +11,5 @@
     $FeedbackDAO = new FeedbackDAO();
     $FeedbackDAO->insert($feedback);
 
-    header('Location:../feedback.php');
+    header('Location:../detalhes.php?id=' . $idProduto);
 ?>

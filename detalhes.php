@@ -1,0 +1,1 @@
+<!-- Página que mostra os detalhes de um produto (ou da cantina) e a parte para dar feedback dele(a) -->
