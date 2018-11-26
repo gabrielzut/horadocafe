@@ -22,5 +22,5 @@
 
     $usuarioDAO->insert($usuario);
 
-    header('Location:../login.php?msg=sucesso');
+    header('Location:../index.php?msg=sucesso');
 ?>

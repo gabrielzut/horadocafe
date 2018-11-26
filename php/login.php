@@ -17,6 +17,6 @@
 
         header('Location:../index.php');
     }else{
-        header('Location:../login.php?msg=errologin');
+        header('Location:../index.php?msg=errologin');
     }
 ?>

@@ -89,7 +89,7 @@
                 <p>ROBSO</p>
             </div>
         </div>
-        <footer class="container-fluid bg-warning">
+        <footer class="container-fluid bg-warning py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 text-center text-md-left">
