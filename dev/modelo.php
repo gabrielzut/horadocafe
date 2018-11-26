@@ -26,7 +26,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <form class="form-inline">
+                    <form class="form-inline" method="POST" action="../php/login.php">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-link mr-3" href="" id="navbarLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Login
@@ -34,17 +34,17 @@
                             <div class="dropdown-menu dropdown-menu-right px-2 py-3" aria-labelledby="navbarLogin">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Seu email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="senha">Senha</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="Sua senha">
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
                                 </div>
                                 <button type="submit" class="btn btn-dark mt-4">Enviar</button
                             </div>
                         </li>
                     </form>
-                    <form class="form-inline">
+                    <form class="form-inline" method="POST" action="../php/cadastrarUsuario.php">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-danger" href="" id="navbarLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Cadastrar
@@ -52,20 +52,20 @@
                             <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="navbarLogin">
                                 <p class="text-center font-weight-bold">Cadastro</p>
                                 <div class="form-group">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                                    <label for="nome">Nome: </label>
+                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Seu email">
+                                    <label for="email">Email: </label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <label for="senha">Senha</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="Sua senha">
+                                    <label for="senha">Senha: </label>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
                                 </div>
                                 <div class="form-group mt-2">
-                                    <label for="confirmar">Confirmar senha</label>
-                                    <input type="password" class="form-control" id="confirmar" placeholder="Sua senha">
+                                    <label for="confirmar">Confirmar senha: </label>
+                                    <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha">
                                 </div>
                                 <button type="submit" class="btn btn-dark mt-4">Enviar</button
                             </div>

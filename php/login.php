@@ -4,7 +4,7 @@
     session_start();
 
     $email = $_POST["email"];
-    $password = $_POST["senha"];
+    $senha = md5($_POST["senha"]);
 
     $usuarioDAO = new UsuarioDAO();
 

@@ -72,11 +72,11 @@
             $conexao = conectar();
             $query = "SELECT * FROM Usuario WHERE email = ? AND senha = ?;";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"s",$email);
+            mysqli_stmt_bind_param($stmt,"ss",$email,$senha);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
-            $senhabanco = md5(lerResultado($resultado)[0]['senha']);
+            $senhabanco = lerResultado($resultado)[0]['senha'];
 
             if($senha != $senhabanco){
                 return false;
