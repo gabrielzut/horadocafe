@@ -21,10 +21,26 @@ body {
 }
 
 footer {
-  position: absolute;
-  bottom: 0px;
   width: 100%;
-  height: 60px;
-  text-align: center;
   padding-top: 15px;
+}
+
+.navbar a {
+  color: black;
+}
+
+.navbar a:visited {
+  color: black;
+}
+
+.navbar a:hover {
+  color: darkred;
+}
+
+.navbar .btn-danger {
+  color: white !important;
+}
+
+.navbar .btn-danger:hover {
+  color: darkorange;
 }
