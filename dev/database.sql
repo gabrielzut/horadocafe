@@ -18,9 +18,10 @@ CREATE TABLE IF NOT EXISTS Usuario (
 CREATE TABLE IF NOT EXISTS Produto (
     id INT AUTO_INCREMENT,
     nome VARCHAR(128) NOT NULL,
+    observacao VARCHAR(128) NOT NULL,
     descricao VARCHAR(512) NOT NULL,
-    quantidade INT,
-    imagem VARCHAR(256),
+    preco DOUBLE NOT NULL,
+    imagem VARCHAR(256) DEFAULT "padrao.png" NOT NULL,
     PRIMARY KEY(id)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
@@ -47,7 +48,6 @@ CREATE TABLE IF NOT EXISTS Feedback (
 	emailUsuario VARCHAR(128) NOT NULL,
     nota INT(5) NOT NULL,
     feedback VARCHAR(256),
-    resposta VARCHAR(256),
 	PRIMARY KEY(emailUsuario,idProduto),
 	FOREIGN KEY(emailUsuario) REFERENCES Usuario(email),
 	FOREIGN KEY(idProduto) REFERENCES Produto(id)

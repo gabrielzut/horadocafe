@@ -6,7 +6,8 @@
     if($imagem['type'] == "image/jpg" || $imagem['type'] == "image/jpeg" || $imagem['type'] == "image/png" || $imagem['type'] == "image/gif" || $imagem['type'] == "image/bmp"){
         $produto['nome'] = $_POST['nome'];
         $produto['descricao'] = $_POST['descricao'];
-        $produto['quantidade'] = $_POST['quantidade'];
+        $produto['observacao'] = $_POST['observacao'];
+        $produto['preco'] = $_POST['preco'];
         
         $nomeTemp = $imagem['tmp_name'];
         $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);

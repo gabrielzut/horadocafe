@@ -20,7 +20,7 @@
             if($_SESSION['admin'] == 1){
         ?>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-danger font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle btn btn-danger" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Área administrativa
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -33,7 +33,7 @@
             }
         ?>
             <li class="nav-item">
-                <a class="nav-link" href="carrinho.php">Carrinho</a>
+                <a class="nav-link" href="carrinho.php">Carrinho <span class="badge badge-danger"><?php echo isset($_SESSION['produtos']) ? count($_SESSION['produtos']) : "0";?></span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="php/sair.php">Sair</a>

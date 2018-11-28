@@ -1,5 +1,5 @@
 <?php 
-    require "conn.php";
+    require($_SERVER['DOCUMENT_ROOT'] . "/horadocha/php/conn.php");
 
     class UsuarioDAO{
         function insert($usuario){

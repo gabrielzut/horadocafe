@@ -8,8 +8,13 @@
     $feedback['nota'] = $_POST['nota'];
     $feedback['feedback'] = $_POST['feedback'];
 
-    $FeedbackDAO = new FeedbackDAO();
-    $FeedbackDAO->insert($feedback);
+    $feedbackDAO = new FeedbackDAO();
 
-    header('Location:../detalhes.php?id=' . $idProduto);
+    if($feedbackDAO->get($feedback['idProduto'],$feedback['emailUsuario']) !== null){
+        $feedbackDAO->update($feedback);
+    }else{
+        $feedbackDAO->insert($feedback);
+    }
+
+    header('Location:../detalhes.php?id=' . $feedback['idProduto']);
 ?>
