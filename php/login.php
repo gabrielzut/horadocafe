@@ -15,7 +15,11 @@
         $_SESSION['senha'] = $usuario['senha'];
         $_SESSION['admin'] = $usuario['admin'];
 
-        header('Location:../index.php');
+        if($_SESSION['admin'] == 0){
+            header('Location:../index.php');
+        }else{
+            header('Location:../adminPedidos.php');
+        }
     }else{
         header('Location:../index.php?msg=errologin');
     }

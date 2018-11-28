@@ -44,3 +44,15 @@ footer {
 .navbar .btn-danger:hover {
   color: darkorange;
 }
+
+#prev {
+  background: url("../img/prev.svg") no-repeat left center !important;
+  left: -7px;
+  width: 4%;
+}
+
+#next {
+  background: url("../img/next.svg") no-repeat right center !important;
+  right: -7px;
+  width: 4%;
+}

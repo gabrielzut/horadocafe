@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS horadocha CHARACTER SET utf8mb4;
 USE horadocha;
 
+DROP TABLE IF EXISTS Pedido_Produto;
 DROP TABLE IF EXISTS Pedido;
 DROP TABLE IF EXISTS Feedback;
 DROP TABLE IF EXISTS Usuario;
@@ -55,4 +56,4 @@ CREATE TABLE IF NOT EXISTS Feedback (
 SET GLOBAL lc_time_names=pt_BR;
 SET NAMES utf8mb4;
 
-INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com",admin,admin,1);
+INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com","admin","21232f297a57a5a743894a0e4a801fc3",1);
