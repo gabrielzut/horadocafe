@@ -13,12 +13,12 @@
         $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
 
         $produtoDAO = new ProdutoDAO();
-        $arrayResultado = $produtoDAO->lastId();
+        $ultimoId = $produtoDAO->lastId();
 
         $id = $ultimoId['auto_increment'];
         $produto['imagem'] = $id . "." . $extensao;
 
-        move_uploaded_file($nomeTemp, './imgProduto/' . $produto['imagem']);
+        move_uploaded_file($nomeTemp, '../imgProduto/' . $produto['imagem']);
         $produtoDAO->insert($produto);
 
         header('Location:../adminProdutos.php?msg=sucesso');

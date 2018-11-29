@@ -44,7 +44,7 @@
                                     <input type="hidden" name="idproduto" value="<?php echo $_GET['id'] ?>">
                                     <div class="row">
                                         <div class="col-4">
-                                            <input type="number" class="form-control" id="quantidade" name="quantidade">
+                                            <input type="number" class="form-control" min="0" step="1" id="quantidade" name="quantidade">
                                         </div>
                                         <div class="col-3">
                                             <button type="submit" class="btn btn-warning">Comprar</button>
@@ -105,7 +105,7 @@
                             </a>
                         </div>
                         <?php if(isset($_SESSION['nome'])){ ?>
-                        <p class="text-center" data-toggle="modal" data-target="#modalFeedback"><a href="#">Avaliar</a></p>
+                        <p class="text-center" data-toggle="modal" data-target="#modalFeedback"><a class="btn btn-sm btn-warning mt-1" href="#">Avaliar</a></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -115,11 +115,10 @@
 
         <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="modalFeedback" aria-hidden="true">
             <form method="POST" action="php/cadastrarFeedback.php">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalFeedback">Avaliar <?php $produto['nome'];?></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
                     <div class="modal-body">
@@ -142,7 +141,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-warning">Enviar</button>
                     </div>
                     </div>
                 </div>
