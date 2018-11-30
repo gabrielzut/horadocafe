@@ -17,12 +17,44 @@
         <?php require_once "php/imprimeNav.php"?>
         <div class="container-fluid">
             <div class="container">
-                <h1 class="text-center my-5">Área administrativa - Produtos</h1>
+                <div class="row my-5">
+                    <div class="col-8">
+                        <h1 class="text-center">Área administrativa - Produtos</h1>
+                    </div>
+                    <div class="col-4">
+                        <form action="adminProdutos.php" method="GET">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="busca" placeholder="<?php echo isset($_GET['busca']) ?  $_GET['busca'] : "..." ?>">
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-warning">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <?php 
+                    if(isset($_GET['msg'])){
+                        if($_GET['msg'] == "erroimagem"){?>
+                            <div class="alert alert-danger"><span class="font-weight-bold">Erro:</span> formato de imagem desconhecido.</div>
+                <?php
+                        }else if($_GET['msg'] == "sucesso"){?>
+                            <div class="alert alert-success"><span class="font-weight-bold">Mensagem:</span> produto cadastrado com sucesso!</div>
+                <?php
+                        }
+                    }
+                ?>
                 <ul class="list-group">
-                    <?php $produtoDAO = new ProdutoDAO();
-                    $produtos = $produtoDAO->listar();
+                    <?php 
+                    $busca = "";
+                    if(isset($_GET['busca'])){
+                        $busca = $_GET['busca'];
+                    }
+                    $produtoDAO = new ProdutoDAO();
+                    $produtos = $produtoDAO->listar($busca);
                     if(count($produtos) == 0){?>
-                        <li class="list-group-item text-center"><h5>Não existem produtos cadastrados!</h5></li>
+                        <li class="list-group-item text-center"><h5>Não foram encontrados produtos!</h5></li>
                     <?php 
                     }else{
                         foreach($produtos as $produto){

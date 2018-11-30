@@ -5,16 +5,19 @@
     $usuario['nome'] = $_POST['nome'];
     $senha = $_POST['senha'];
     $confirmar = $_POST['confirmar'];
+    $origem = $_POST['origem'];
+
+    $location = $origem == "nav" ? "Location:../index.php" : "Location:../adminUsuarios.php";
 
     if($senha != $confirmar){
-        header('Location:../cadastro.php?msg=errosenha');
+        header($location . '?msg=errosenha');
         exit;
     }
 
     $usuarioDAO = new UsuarioDAO();
 
     if(count($usuarioDAO->get($usuario['email']) > 0)){
-        header('Location:../cadastro.php?msg=erroemail');
+        header($location . '?msg=erroemail');
     }
 
     $senhahash = md5($senha);
@@ -22,5 +25,5 @@
 
     $usuarioDAO->insert($usuario);
 
-    header('Location:../index.php?msg=sucesso');
+    header($location . '?msg=sucesso');
 ?>

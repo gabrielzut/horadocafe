@@ -47,10 +47,12 @@
             desconectar($conexao);
         }
 
-        function listar(){
+        function listar($busca){
             $conexao = conectar();
-            $query = "SELECT * FROM Usuario;";
+            $busca = "%" . $busca . "%";
+            $query = "SELECT * FROM Usuario WHERE UPPER(nome) LIKE UPPER(?);";
             $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"s",$busca);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
@@ -83,6 +85,16 @@
             }else{
                 return true;
             }
+        }
+
+        function countAdmin(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Usuario WHERE admin = 1;";
+            $stmt = mysqli_prepare($conexao,$query);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return count(lerResultado($resultado));
         }
     }
 ?>

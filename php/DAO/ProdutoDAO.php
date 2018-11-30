@@ -38,10 +38,12 @@
             desconectar($conexao);
         }
 
-        function listar(){
+        function listar($busca){
             $conexao = conectar();
-            $query = "SELECT * FROM Produto;";
+            $busca = "%" . $busca . "%";
+            $query = "SELECT * FROM Produto WHERE UPPER(nome) LIKE UPPER(?);";
             $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"s",$busca);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
