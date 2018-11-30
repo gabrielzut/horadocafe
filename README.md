@@ -1,2 +1,2 @@
 # horadocha
-Hora do chá
+Hora do café
