@@ -30,5 +30,5 @@
     }
 
     $produtoDAO->updateProduto($produto);
-    header('Location:../adminProdutos.php?msg=sucessoalterar');
+    header('Location:../adminProdutos.php?msg=sucesso');
 ?>

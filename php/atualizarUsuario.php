@@ -8,10 +8,12 @@
 
     if($acao == "alterar"){
         $usuario['nome'] = $_POST['nome'];
+        $usuario['senha'] = md5($_POST['senha']);
+        $origem = $_POST['origem'] == "perfil" ? "Location:../perfil.php?msg=sucesso" : "Location:../adminUsuarios.php?msg=sucesso";
 
         $usuarioDAO->update($usuario);
 
-        header('Location:../index.php');
+        header($origem);
     }else if($acao == "remover"){
         $usuario['admin'] = $_POST['admin'];
         if(($usuarioDAO->countAdmin() > 1) || ($usuario['admin'] == 0)){

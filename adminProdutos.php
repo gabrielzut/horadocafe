@@ -40,7 +40,7 @@
                             <div class="alert alert-danger"><span class="font-weight-bold">Erro:</span> formato de imagem desconhecido.</div>
                 <?php
                         }else if($_GET['msg'] == "sucesso"){?>
-                            <div class="alert alert-success"><span class="font-weight-bold">Mensagem:</span> produto cadastrado com sucesso!</div>
+                            <div class="alert alert-success"><span class="font-weight-bold">Mensagem:</span> produto cadastrado/alterado com sucesso!</div>
                 <?php
                         }
                     }

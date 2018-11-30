@@ -13,18 +13,9 @@
 
         function update($usuario){
             $conexao = conectar();
-            $query = "UPDATE Usuario SET nome = ? WHERE email = ?;";
+            $query = "UPDATE Usuario SET nome = ?, senha = ? WHERE email = ?;";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"ss",$usuario['nome'],$usuario['email']);
-            executar_SQL($conexao,$stmt);
-            desconectar($conexao);
-        }
-
-        function updateSenha($usuario){
-            $conexao = conectar();
-            $query = "UPDATE Usuario SET senha = ? WHERE email = ?;";
-            $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"ss",$usuario['senha'],$usuario['email']);
+            mysqli_stmt_bind_param($stmt,"sss",$usuario['nome'],$usuario['senha'],$usuario['email']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }

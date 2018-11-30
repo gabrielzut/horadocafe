@@ -54,7 +54,7 @@
                             <div class="alert alert-danger"><span class="font-weight-bold">Erro:</span> as senhas informadas não condizem!</div>
                 <?php
                         }else if($_GET['msg'] == "sucesso"){?>
-                            <div class="alert alert-success"><span class="font-weight-bold">Mensagem:</span> usuário cadastrado com sucesso!</div>
+                            <div class="alert alert-success"><span class="font-weight-bold">Mensagem:</span> usuário cadastrado/alterado com sucesso!</div>
                 <?php
                         }
                     }
@@ -109,11 +109,11 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="email">Email: </label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="senha">Senha: </label>
@@ -144,15 +144,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                             </div>
-                            <div class="form-group mt-2">
-                                <label for="senha">Senha: </label>
-                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="confirmar">Confirmar senha: </label>
-                                <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha">
+                            <div class="form-group">
+                                <label for="nome">Senha: </label>
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Nova senha">
                             </div>
                             <input type="hidden" id="email" name="email">
                             <input type="hidden" name="acao" value="alterar">
