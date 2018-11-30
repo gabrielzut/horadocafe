@@ -23,7 +23,7 @@
         }
         ?>
 
-        <title>Detalhes de <?php echo $produto['nome'];?></title>
+        <title>Detalhes de <?php echo $produto['nome'];?> - Hora do Café</title>
     </head>
     <body>
         <?php require_once "php/imprimeNav.php"?>

@@ -11,7 +11,7 @@
         <script src="lib/jquery-3.3.1.min.js"></script>
         <script src="js/alterarUsuario.js"></script>
 
-        <title>Gerenciando usuários - Hora do Chá</title>
+        <title>Gerenciando usuários - Hora do Café</title>
     </head>
     <body>
         <?php require_once "php/imprimeNav.php";

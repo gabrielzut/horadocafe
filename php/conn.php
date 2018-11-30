@@ -9,7 +9,7 @@ if(!defined('BD_SENHA')){
     define('BD_SENHA', '');
 }
 if(!defined('BD_BASEDEDADOS')){
-    define('BD_BASEDEDADOS', 'horadocha');
+    define('BD_BASEDEDADOS', 'horadocafe');
 }
 
 if(!function_exists('conectar')){

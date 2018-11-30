@@ -11,7 +11,7 @@
         <script src="lib/jquery-3.3.1.min.js"></script>
         <script src="js/alterarProduto.js"></script>
 
-        <title>Gerenciando produtos - Hora do Chá</title>
+        <title>Gerenciando produtos - Hora do Café</title>
     </head>
     <body>
         <?php require_once "php/imprimeNav.php"?>
