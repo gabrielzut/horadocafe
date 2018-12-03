@@ -44,7 +44,7 @@
                                     <input type="hidden" name="idproduto" value="<?php echo $_GET['id'] ?>">
                                     <div class="row">
                                         <div class="col-4">
-                                            <input type="number" class="form-control" min="0" step="1" id="quantidade" name="quantidade">
+                                            <input type="number" class="form-control" min="1" step="1" id="quantidade" name="quantidade">
                                         </div>
                                         <div class="col-3">
                                             <button type="submit" class="btn btn-warning">Comprar</button>

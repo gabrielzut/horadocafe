@@ -14,7 +14,12 @@
         <title>Gerenciando produtos - Hora do Café</title>
     </head>
     <body>
-        <?php require_once "php/imprimeNav.php"?>
+        <?php require_once "php/imprimeNav.php";
+        $busca = "";
+            if(isset($_GET['busca'])){
+                $busca = $_GET['busca'];
+            }
+        ?>
         <div class="container-fluid">
             <div class="container">
                 <div class="row my-5">
@@ -25,10 +30,13 @@
                         <form action="adminProdutos.php" method="GET">
                             <div class="form-row">
                                 <div class="col">
-                                    <input type="text" class="form-control" name="busca" placeholder="<?php echo isset($_GET['busca']) ?  $_GET['busca'] : "..." ?>">
+                                    <input type="text" class="form-control" name="busca" placeholder="<?php echo $busca; ?>">
                                 </div>
                                 <div class="col">
                                     <button type="submit" class="btn btn-warning">Buscar</button>
+                                    <?php if($busca != ""){?>
+                                        <button type="button" onclick="window.location.href='adminUsuarios.php';" class="btn btn-warning">Voltar</button>
+                                    <?php }?>
                                 </div>
                             </div>
                         </form>
@@ -46,11 +54,7 @@
                     }
                 ?>
                 <ul class="list-group">
-                    <?php 
-                    $busca = "";
-                    if(isset($_GET['busca'])){
-                        $busca = $_GET['busca'];
-                    }
+                    <?php
                     $produtoDAO = new ProdutoDAO();
                     $produtos = $produtoDAO->listar($busca);
                     if(count($produtos) == 0){?>
@@ -69,11 +73,11 @@
                                         <p><?php echo $produto['descricao']; ?></p>
                                         <h6><?php echo "R$" . number_format($produto['preco'], 2, ',', ''); ?></h6>
                                     </div>
-                                    <div class="col-12 col-md-2 text-center text-md-left">
+                                    <div class="col-12 col-md-2 text-center text-md-right">
                                         <button type="button" class="btn btn-warning btn-sm alterar" data-toggle="modal" id="alterar" data-target="#modalAlterar">Alterar</button>
                                         <form method="POST" action="php/removerProduto.php"?>
                                             <input type="hidden" name="idproduto" value="<?php echo $produto['id']; ?>">
-                                            <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                                            <button type="submit" class="btn btn-danger btn-sm mt-2">Remover</button>
                                         </form>
                                         <div class="id" style="display: none;"><?php echo $produto['id']; ?></div>
                                         <div class="nome" style="display: none;"><?php echo $produto['nome']; ?></div>
@@ -98,7 +102,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalFeedback">Cadastrar Produto</h5>
-                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
@@ -142,7 +145,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalFeedback">Alterar Produto</h5>
-                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">

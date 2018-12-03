@@ -76,13 +76,13 @@
                                         <p><?php echo $usuario['email']; ?></p>
                                         <h6><?php echo $usuario['admin'] ? "Administrador" : "Cliente" ?></h6>
                                     </div>
-                                    <div class="col-12 col-md-2 text-center text-md-left">
+                                    <div class="col-12 col-md-2 text-center text-md-right">
                                         <button type="button" class="btn btn-warning btn-sm alterar" data-toggle="modal" id="alterar" data-target="#modalAlterar">Alterar</button>
                                         <form method="POST" action="php/atualizarUsuario.php"?>
                                             <input type="hidden" name="email" value="<?php echo $usuario['email']; ?>">
                                             <input type="hidden" name="admin" value="<?php echo $usuario['admin']; ?>">
-                                            <button type="submit" name="acao" value="remover" class="btn btn-danger btn-sm">Remover</button>
-                                            <button type="submit" name="acao" value="admin" class="btn btn-success btn-sm"><?php if($usuario['admin']){?>Tornar cliente comum<?php }else{ ?>Tornar administrador<?php } ?></button>
+                                            <button type="submit" name="acao" value="remover" class="btn btn-danger btn-sm mt-1">Remover</button>
+                                            <button type="submit" name="acao" value="admin" class="btn btn-success btn-sm mt-1"><?php if($usuario['admin']){?>Tornar cliente comum<?php }else{ ?>Tornar administrador<?php } ?></button>
                                         </form>
                                         <div class="email" style="display: none;"><?php echo $usuario['email']; ?></div>
                                         <div class="nome" style="display: none;"><?php echo $usuario['nome']; ?></div>

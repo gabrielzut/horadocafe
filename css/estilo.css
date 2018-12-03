@@ -56,3 +56,7 @@ footer {
   right: -7px;
   width: 4%;
 }
+
+.dropdown-item.active, .dropdown-item:active{
+  background-color: #ffc107;
+}

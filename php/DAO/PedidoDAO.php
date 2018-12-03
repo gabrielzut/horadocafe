@@ -4,21 +4,21 @@
     class PedidoDAO{
         function insert($pedido){
             $conexao = conectar();
-            $query = "INSERT INTO Pedido(emailUsuario,descricao,data) VALUES (?,?,?,?);";
+            $query = "INSERT INTO Pedido(emailUsuario,descricao,data) VALUES (?,?,?);";
             $stmt = mysqli_prepare($conexao,$query);
             mysqli_stmt_bind_param($stmt,"sss",$pedido['emailUsuario'],$pedido['descricao'],$pedido['data']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
-            $idPedido = lastId();
+            $idPedido = $this->lastId() - 1;
 
-            $conexao = conectar();
+            $conexao2 = conectar();
 
             foreach($pedido['produtos'] as $produto){
-                $query2 = "INSERT INTO Produto_Pedido(idPedido,idProduto,quantidade) VALUES (?,?,?);";
-                $stmt = mysqli_prepare($conexao,$query2);
-                mysqli_stmt_bind_param($stmt,"iii",$idPedido,$produto['id'],$produto['quantidade']);
-                executar_SQL($conexao,$stmt);
+                $query2 = "INSERT INTO Pedido_Produto(idPedido,idProduto,quantidade) VALUES (?,?,?);";
+                $stmt2 = mysqli_prepare($conexao2,$query2);
+                mysqli_stmt_bind_param($stmt2,"iii",$idPedido,$produto['idproduto'],$produto['quantidade']);
+                executar_SQL($conexao2,$stmt2);
             }
 
             desconectar($conexao);
@@ -48,7 +48,7 @@
 
         function listar(){
             $conexao = conectar();
-            $query = "SELECT * FROM Pedido;";
+            $query = "SELECT * FROM Pedido WHERE atendido;";
             $stmt = mysqli_prepare($conexao,$query);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
@@ -98,7 +98,7 @@
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
-            return lerResultado($resultado)[0];
+            return lerResultado($resultado)[0]['auto_increment'];
         }
     }
 ?>

@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Pedido (
     emailUsuario VARCHAR(128) NOT NULL,
     descricao VARCHAR(128),
     data DATETIME NOT NULL,
+    atendido TINYINT(1) DEFAULT 0 NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(emailUsuario) REFERENCES Usuario(email)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;

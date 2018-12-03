@@ -14,6 +14,7 @@
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['senha'] = $usuario['senha'];
         $_SESSION['admin'] = $usuario['admin'];
+        $_SESSION['produtos'] = [];
 
         if($_SESSION['admin'] == 0){
             header('Location:../index.php');
