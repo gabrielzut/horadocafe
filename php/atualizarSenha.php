@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaLogin();
+    
     require "DAO/UsuarioDAO.php";
 
     $confirmar = $_POST['confirmar'];

@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaLogin();
+
     $idproduto = $_POST['idproduto'];
     $quantidade = $_POST['quantidade'];
 

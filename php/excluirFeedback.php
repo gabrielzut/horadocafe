@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaLogin();
+    
     require "DAO/FeedbackDAO.php";
 
     $idProduto = $_POST['idProduto'];
@@ -8,5 +11,9 @@
 
     $feedbackDAO->remove($idProduto,$emailUsuario);
 
-    header('Location:../detalhes.php?id=' . $idProduto);
+    if(isset($_POST['cantina'])){
+        header('Location:../sobre.php');
+    }else{
+        header('Location:../detalhes.php?id=' . $idProduto);
+    }
 ?>

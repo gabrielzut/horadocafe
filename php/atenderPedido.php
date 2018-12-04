@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaAdmin();
+    
     require "DAO/PedidoDAO.php";
 
     $pedidoDAO = new PedidoDAO();

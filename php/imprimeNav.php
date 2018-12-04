@@ -15,7 +15,9 @@
         </ul>
         <ul class="navbar-nav">
         <?php
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
             if($_SESSION['admin'] == 1){
         ?>
@@ -32,6 +34,9 @@
         <?php
             }
         ?>
+            <li class="nav-item">
+                <a class="nav-link" href="perfil.php">Meu perfil</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="carrinho.php">Carrinho <span class="badge badge-danger"><?php echo isset($_SESSION['produtos']) ? count($_SESSION['produtos']) : "0";?></span></a>
             </li>
@@ -50,11 +55,11 @@
                     <div class="dropdown-menu dropdown-menu-right px-2 py-3" aria-labelledby="navbarLogin">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="senha">Senha</label>
-                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha" required>
                         </div>
                         <button type="submit" class="btn btn-dark mt-4">Enviar</button>
                     </div>
@@ -69,19 +74,19 @@
                         <p class="text-center font-weight-bold">Cadastro</p>
                         <div class="form-group">
                             <label for="nome">Nome: </label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="email">Email: </label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="senha">Senha: </label>
-                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="confirmar">Confirmar senha: </label>
-                            <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha">
+                            <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha" required>
                         </div>
                         <button type="submit" name="origem" value="nav" class="btn btn-dark mt-4">Enviar</button>
                     </div>

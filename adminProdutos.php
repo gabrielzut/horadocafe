@@ -6,7 +6,11 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/CSS" href="css/estilo.css">
-        <?php require "php/DAO/ProdutoDAO.php"?>
+        <?php 
+        require "php/verificaLogin.php";
+        verificaAdmin();
+        
+        require "php/DAO/ProdutoDAO.php"?>
 
         <script src="lib/jquery-3.3.1.min.js"></script>
         <script src="js/alterarProduto.js"></script>
@@ -106,15 +110,15 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome">
+                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
                             </div>
                             <div class="form-group">
                                 <label for="descricao">Descrição: </label>
-                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao">
+                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
                             </div>
                             <div class="form-group">
                                 <label for="observacao">Observação: </label>
-                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao">
+                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
                             </div>
                             <div class="form-group">
                                 <label for="preco">Preço: </label>
@@ -122,7 +126,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">R$</div>
                                     </div>
-                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco">
+                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -149,15 +153,15 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome">
+                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
                             </div>
                             <div class="form-group">
                                 <label for="descricao">Descrição: </label>
-                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao">
+                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
                             </div>
                             <div class="form-group">
                                 <label for="observacao">Observação: </label>
-                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao">
+                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
                             </div>
                             <div class="form-group">
                                 <label for="preco">Preço: </label>
@@ -165,7 +169,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">R$</div>
                                     </div>
-                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco">
+                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco" required>
                                 </div>
                             </div>
                             <div class="form-group">

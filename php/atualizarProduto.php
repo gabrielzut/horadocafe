@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaAdmin();
+    
     require "DAO/ProdutoDAO.php";
 
     $produto['id'] = $_POST['id'];

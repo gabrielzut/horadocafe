@@ -6,7 +6,11 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/CSS" href="css/estilo.css">
-        <?php require "php/DAO/UsuarioDAO.php"?>
+        <?php
+        require "php/verificaLogin.php";
+        verificaAdmin();
+
+        require "php/DAO/UsuarioDAO.php"?>
 
         <script src="lib/jquery-3.3.1.min.js"></script>
         <script src="js/alterarUsuario.js"></script>
@@ -109,19 +113,19 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
                             </div>
                             <div class="form-group mt-2">
                                 <label for="email">Email: </label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                             </div>
                             <div class="form-group mt-2">
                                 <label for="senha">Senha: </label>
-                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                             </div>
                             <div class="form-group mt-2">
                                 <label for="confirmar">Confirmar senha: </label>
-                                <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha">
+                                <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar senha" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -139,12 +143,11 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalFeedback">Alterar Usuário</h5>
-                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
                             </div>
                             <div class="form-group">
                                 <label for="nome">Senha: </label>

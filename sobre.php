@@ -65,13 +65,23 @@
                                     foreach($feedbacks as $feedback){?>
                                         <div class="carousel-item<?php if($primeiro) echo " active" ?>">
                                             <div class="card">
-                                                <div class="card-body">
-                                                    <blockquote class="blockquote mb-0 px-5 text-center">
+                                                <div class="card-body text-center">
+                                                    <blockquote class="blockquote mb-0 px-5">
                                                         <h3><?php echo str_repeat("⭐",$feedback['nota']);?></h3>
                                                         <h3><?php echo $feedback['feedback'];?></h3>
                                                         <footer class="blockquote-footer"><?php $usuarioDAO = new UsuarioDAO();
                                                         echo $usuarioDAO->get($feedback['emailUsuario'])['nome'];?></footer>
                                                     </blockquote>
+                                                    <?php 
+                                                    if(isset($_SESSION['nome'])){
+                                                        if($_SESSION['admin'] == 1 || $_SESSION['email'] == $feedback['emailUsuario']){?>
+                                                        <form method="POST" action="php/excluirFeedback.php">
+                                                            <input type="hidden" name="idProduto" value="<?php echo $feedback['idProduto'];?>">
+                                                            <input type="hidden" name="emailUsuario" value="<?php echo $feedback['emailUsuario'];?>">
+                                                            <button type="submit" name="cantina" value="1" class="btn btn-danger mt-3">❌</button>
+                                                        </form>
+                                                    <?php }
+                                                    }?>
                                                 </div>
                                             </div>
                                         </div>

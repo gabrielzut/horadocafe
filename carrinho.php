@@ -6,7 +6,11 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/CSS" href="css/estilo.css">
-        <?php require "php/DAO/ProdutoDAO.php"?>
+        <?php
+        require "php/verificaLogin.php";
+        verificaLogin();
+
+        require "php/DAO/ProdutoDAO.php"?>
 
         <title>Carrinho - Hora do Café</title>
     </head>
@@ -94,11 +98,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="horario">Horário de retirada: </label>
-                                <input type="time" class="form-control" min="7:00" max="21:30" id="horario" name="horario">
+                                <input type="time" class="form-control" min="7:00" max="21:30" id="horario" name="horario" required>
                             </div>
                             <div class="form-group">
                                 <label for="descricao">Descrição: </label>
-                                <input type="text" class="form-control" id="descricao" placeholder="Possíveis e observações sobre o pedido" name="descricao">
+                                <input type="text" class="form-control" id="descricao" placeholder="Possíveis e observações sobre o pedido" name="descricao" required>
                             </div>
                             <p class="text-center font-weight-bold">Total a pagar: R$<?php echo number_format($total, 2, ',', ''); ?></p>
                             <input type="hidden" id="preco" name="preco" value="<?php echo $total; ?>">

@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaLogin();
+    
     require "DAO/PedidoDAO.php";
     session_start();
 

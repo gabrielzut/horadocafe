@@ -47,12 +47,18 @@
                                 <form method="POST" action="php/adicionarCarrinho.php">
                                     <input type="hidden" name="idproduto" value="<?php echo $_GET['id'] ?>">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <input type="number" class="form-control" value="1" min="1" step="1" id="quantidade" name="quantidade" required>
-                                        </div>
-                                        <div class="col-3">
-                                            <button type="submit" class="btn btn-warning">Comprar</button>
-                                        </div>
+                                        <?php if(isset($_SESSION['nome'])) {?>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" value="1" min="1" step="1" id="quantidade" name="quantidade" required>
+                                            </div>
+                                            <div class="col-3">
+                                                <button type="submit" class="btn btn-warning">Comprar</button>
+                                            </div>
+                                        <?php }else{?>
+                                            <div class="col my-2">
+                                                <span class="alert alert-warning">Você precisa estar logado para adicionar ao seu carrinho!</span>
+                                            </div>
+                                        <?php }?>
                                     </div>
                                 </form>
                             </div>
@@ -86,7 +92,17 @@
                                         <div class="carousel-item<?php if($primeiro) echo " active" ?>">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <blockquote class="blockquote mb-0">
+                                                    <?php 
+                                                    if(isset($_SESSION['nome'])){
+                                                        if($_SESSION['admin'] == 1 || $_SESSION['email'] == $feedback['emailUsuario']){?>
+                                                        <form method="POST" action="php/excluirFeedback.php">
+                                                            <input type="hidden" name="idProduto" value="<?php echo $feedback['idProduto'];?>">
+                                                            <input type="hidden" name="emailUsuario" value="<?php echo $feedback['emailUsuario'];?>">
+                                                            <button type="submit" class="btn btn-danger float-right">❌</button>
+                                                        </form>
+                                                    <?php }
+                                                    }?>
+                                                    <blockquote class="blockquote float-left mb-0">
                                                         <p><?php echo str_repeat("⭐",$feedback['nota']);?></p>
                                                         <p><?php echo $feedback['feedback'];?></p>
                                                         <footer class="blockquote-footer"><?php $usuarioDAO = new UsuarioDAO();

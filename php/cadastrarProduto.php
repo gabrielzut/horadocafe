@@ -1,4 +1,7 @@
 <?php
+    require "verificaLogin.php";
+    verificaAdmin();
+    
     require "DAO/ProdutoDAO.php";
 
     if($_FILES['imagem']['size'] > 0){
