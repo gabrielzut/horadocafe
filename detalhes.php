@@ -12,6 +12,10 @@
         require "php/DAO/UsuarioDAO.php";
 
         if(isset($_GET['id'])){
+            if($_GET['id'] <= 1){
+                header('Location: index.php');
+            }
+
             $produtoDAO = new ProdutoDAO();
             $produto = $produtoDAO->get($_GET['id']);
 
@@ -44,7 +48,7 @@
                                     <input type="hidden" name="idproduto" value="<?php echo $_GET['id'] ?>">
                                     <div class="row">
                                         <div class="col-4">
-                                            <input type="number" class="form-control" min="1" step="1" id="quantidade" name="quantidade">
+                                            <input type="number" class="form-control" value="1" min="1" step="1" id="quantidade" name="quantidade" required>
                                         </div>
                                         <div class="col-3">
                                             <button type="submit" class="btn btn-warning">Comprar</button>

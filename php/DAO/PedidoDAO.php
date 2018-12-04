@@ -4,9 +4,9 @@
     class PedidoDAO{
         function insert($pedido){
             $conexao = conectar();
-            $query = "INSERT INTO Pedido(emailUsuario,descricao,data) VALUES (?,?,?);";
+            $query = "INSERT INTO Pedido(emailUsuario,descricao,data,preco) VALUES (?,?,?,?);";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"sss",$pedido['emailUsuario'],$pedido['descricao'],$pedido['data']);
+            mysqli_stmt_bind_param($stmt,"sssd",$pedido['emailUsuario'],$pedido['descricao'],$pedido['data'],$pedido['preco']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
@@ -24,11 +24,11 @@
             desconectar($conexao);
         }
 
-        function update($pedido){
+        function atender($id){
             $conexao = conectar();
-            $query = "UPDATE Pedido SET descricao = ?, data = ? WHERE id = ?;";
+            $query = "UPDATE Pedido SET atendido = 1 WHERE id = ?;";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"ssi",$pedido['descricao'],$pedido['data'],$pedido['id']);
+            mysqli_stmt_bind_param($stmt,"i",$id);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }
@@ -48,15 +48,16 @@
 
         function listar(){
             $conexao = conectar();
-            $query = "SELECT * FROM Pedido WHERE atendido;";
+            $query = "SELECT * FROM Pedido WHERE atendido = 0 AND DATE(data) = CURDATE() ORDER BY data ASC;";
             $stmt = mysqli_prepare($conexao,$query);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
             $pedidos = lerResultado($resultado);
 
-            foreach($pedidos as $pedido){
-                $pedido['produtos'] = getProdutos($pedido['id']);
+            foreach($pedidos as $chave => $pedido){
+                $pedidos[$chave]['produtos'] = [];
+                $pedidos[$chave]['produtos'] = $this->getProdutos($pedido['id']);
             }
 
             return $pedidos;

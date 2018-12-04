@@ -9,6 +9,7 @@
     $pedido['data'] = date("Y-m-d");
     $pedido['data'] = $pedido['data'] . " " . $horario;
     $pedido['produtos'] = $_SESSION['produtos'];
+    $pedido['preco'] = $_POST['preco'];
 
     $pedidoDAO->insert($pedido);
     $_SESSION['produtos'] = [];

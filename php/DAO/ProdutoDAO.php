@@ -41,7 +41,7 @@
         function listar($busca){
             $conexao = conectar();
             $busca = "%" . $busca . "%";
-            $query = "SELECT * FROM Produto WHERE UPPER(nome) LIKE UPPER(?);";
+            $query = "SELECT * FROM Produto WHERE UPPER(nome) LIKE UPPER(?) AND id != 1;";
             $stmt = mysqli_prepare($conexao,$query);
             mysqli_stmt_bind_param($stmt,"s",$busca);
             $resultado = executar_SQL($conexao,$stmt);

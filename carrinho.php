@@ -101,6 +101,7 @@
                                 <input type="text" class="form-control" id="descricao" placeholder="Possíveis e observações sobre o pedido" name="descricao">
                             </div>
                             <p class="text-center font-weight-bold">Total a pagar: R$<?php echo number_format($total, 2, ',', ''); ?></p>
+                            <input type="hidden" id="preco" name="preco" value="<?php echo $total; ?>">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

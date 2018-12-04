@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Pedido (
     emailUsuario VARCHAR(128) NOT NULL,
     descricao VARCHAR(128),
     data DATETIME NOT NULL,
+    preco DOUBLE NOT NULL,
     atendido TINYINT(1) DEFAULT 0 NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(emailUsuario) REFERENCES Usuario(email)
@@ -58,3 +59,4 @@ SET GLOBAL lc_time_names=pt_BR;
 SET NAMES utf8mb4;
 
 INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com","admin","21232f297a57a5a743894a0e4a801fc3",1);
+INSERT INTO Produto(nome,observacao,descricao,preco) VALUES ("cantina","cantina","cantina",0);
