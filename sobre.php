@@ -52,7 +52,7 @@
                         <div id="carouselFeedback" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <?php $feedbackDAO = new FeedbackDAO();
-                                $feedbacks = $feedbackDAO->listar(0);
+                                $feedbacks = $feedbackDAO->listar(1);
                                 if(count($feedbacks) == 0){?>
                                     <div class="carousel-item active">
                                         <div class="card py-5">
@@ -66,9 +66,9 @@
                                         <div class="carousel-item<?php if($primeiro) echo " active" ?>">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <blockquote class="blockquote mb-0">
-                                                        <p><?php echo str_repeat("⭐",$feedback['nota']);?></p>
-                                                        <p><?php echo $feedback['feedback'];?></p>
+                                                    <blockquote class="blockquote mb-0 px-5 text-center">
+                                                        <h3><?php echo str_repeat("⭐",$feedback['nota']);?></h3>
+                                                        <h3><?php echo $feedback['feedback'];?></h3>
                                                         <footer class="blockquote-footer"><?php $usuarioDAO = new UsuarioDAO();
                                                         echo $usuarioDAO->get($feedback['emailUsuario'])['nome'];?></footer>
                                                     </blockquote>
@@ -91,6 +91,7 @@
                         <?php if(isset($_SESSION['nome'])){ ?>
                         <p class="text-center" data-toggle="modal" data-target="#modalFeedback"><a class="btn btn-sm btn-warning mt-2" href="#">Avaliar</a></p>
                         <?php } ?>
+                        <div class="mb-5"></div>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-warning">Enviar</button>
+                            <button type="submit" name="cantina" value="1" class="btn btn-warning">Enviar</button>
                         </div>
                     </div>
                 </div>

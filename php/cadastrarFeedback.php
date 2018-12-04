@@ -16,5 +16,9 @@
         $feedbackDAO->insert($feedback);
     }
 
-    header('Location:../detalhes.php?id=' . $feedback['idProduto']);
+    if(isset($_POST['cantina'])){
+        header('Location:../sobre.php');
+    }else{
+        header('Location:../detalhes.php?id=' . $feedback['idProduto']);
+    }
 ?>
