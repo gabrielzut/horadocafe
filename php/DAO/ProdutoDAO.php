@@ -4,18 +4,18 @@
     class ProdutoDAO{
         function insert($produto){
             $conexao = conectar();
-            $query = "INSERT INTO Produto(nome,observacao,descricao,preco,imagem) VALUES (?,?,?,?,?);";
+            $query = "INSERT INTO Produto(nome,observacao,categoria,descricao,preco,quantidade,imagem) VALUES (?,?,?,?,?,?,?);";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"sssds",$produto['nome'],$produto['observacao'],$produto['descricao'],$produto['preco'],$produto['imagem']);
+            mysqli_stmt_bind_param($stmt,"ssisdis",$produto['nome'],$produto['observacao'],$produto['categoria'],$produto['descricao'],$produto['preco'],$produto['quantidade'],$produto['imagem']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }
 
         function updateProduto($produto){
             $conexao = conectar();
-            $query = "UPDATE Produto SET nome = ?, observacao = ?, descricao = ?, preco = ? WHERE id = ?;";
+            $query = "UPDATE Produto SET nome = ?, observacao = ?, categoria = ?, descricao = ?, preco = ?, quantidade = ? WHERE id = ?;";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"sssdi",$produto['nome'],$produto['observacao'],$produto['descricao'],$produto['preco'],$produto['id']);
+            mysqli_stmt_bind_param($stmt,"ssisdii",$produto['nome'],$produto['observacao'],$produto['categoria'],$produto['descricao'],$produto['preco'],$produto['quantidade'],$produto['id']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }

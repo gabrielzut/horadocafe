@@ -7,10 +7,14 @@
     $produto['id'] = $_POST['id'];
     $produto['nome'] = $_POST['nome'];
     $produto['descricao'] = $_POST['descricao'];
+    $produto['categoria'] = $_POST['categoria'];
     $produto['observacao'] = $_POST['observacao'];
+    $produto['quantidade'] = $_POST['quantidade'];
     $produto['preco'] = $_POST['preco'];
+    $produto['imagem'] = "padrao.png";
 
     $produtoDAO = new ProdutoDAO();
+    
 
     if(isset($_FILES['imagem'])){
         $imagem = $_FILES['imagem'];
@@ -29,9 +33,11 @@
             $produtoDAO->updateImagem($produto);
         } else {
             header('Location:../adminProdutos.php?msg=erroimagem');
+            $produto['imagem'] = "padrao.png";
         }
     }
 
     $produtoDAO->updateProduto($produto);
     header('Location:../adminProdutos.php?msg=sucesso');
+
 ?>
