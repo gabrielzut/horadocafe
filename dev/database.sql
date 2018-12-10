@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS Produto (
     id INT AUTO_INCREMENT,
     nome VARCHAR(128) NOT NULL,
     observacao VARCHAR(128) NOT NULL,
-    categoria INT,
-    quantidade INT DEFAULT 0,
     descricao VARCHAR(512) NOT NULL,
+    categoria INT NOT NULL,
+    quantidade INT NOT NULL DEFAULT 0,
     preco DOUBLE NOT NULL,
     imagem VARCHAR(256) DEFAULT "padrao.png" NOT NULL,
     PRIMARY KEY(id),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS Feedback (
 SET GLOBAL lc_time_names=pt_BR;
 SET NAMES utf8mb4;
 
-INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com","admin","21232f297a57a5a743894a0e4a801fc3",1); 
+INSERT INTO Usuario(email,nome,senha,admin) VALUES ("admin@admin.com","admin","21232f297a57a5a743894a0e4a801fc3",1);
 
 INSERT INTO Categoria(nome) VALUES ("Cantina");     
 INSERT INTO Categoria(nome) VALUES ("Salgados");   

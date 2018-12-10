@@ -16,7 +16,7 @@
     </head>
     <body>
         <?php require_once "php/imprimeNav.php"?>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="container">
                 <div class="row my-5">
                     <div class="col">
@@ -38,6 +38,13 @@
                     ?>
                             <li class="list-group-item">
                                 <div class="row">
+                                    <?php 
+                                        if($infoproduto['quantidade'] < $produto['quantidade']){?>
+                                            <div class="col-12 mb-2">
+                                                <span class="alert alert-danger d-block">Houve um problema com seu pedido: a quantidade no carrinho é maior do que a em estoque. Em estoque: <?php echo $infoproduto['quantidade']; ?></span>
+                                            </div>
+                                        <?php }
+                                    ?>
                                     <div class="col-12 col-md-2">
                                         <p class="text-center my-1"><img width="100px" height="100px" src="imgProduto/<?php echo $infoproduto['imagem']; ?>"></p>
                                     </div>
@@ -52,7 +59,7 @@
                                                 <form method="POST" action="php/adicionarCarrinho.php"?>
                                                 <div class="input-group">
                                                         <label for="quantidade" class="mr-1">Quantidade:</label>
-                                                        <input type="number" class="form-control" min="1" step="1" id="quantidade" name="quantidade" value="<?php echo $produto['quantidade']; ?>">
+                                                        <input type="number" class="form-control" min="1" max="<?php echo $infoproduto['quantidade']; ?>" step="1" id="quantidade" name="quantidade" value="<?php echo $produto['quantidade']; ?>">
                                                         <span class="input-group-btn">
                                                             <button type="submit" class="btn btn-warning btn-sm ml-1">Atualizar</button>
                                                         </span>

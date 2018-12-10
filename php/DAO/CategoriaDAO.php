@@ -29,7 +29,13 @@
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
-            return lerResultado($resultado)[0];
+            $arrayResultado = lerResultado($resultado);
+
+            if(isset($arrayResultado[0])){
+                return $arrayResultado[0];
+            }else{
+                return null;
+            }
         }
 
         function lastId(){

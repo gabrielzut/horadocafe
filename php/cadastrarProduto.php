@@ -4,18 +4,16 @@
     
     require "DAO/ProdutoDAO.php";
 
-        $produto['nome'] = $_POST['nome'];
-        $produto['descricao'] = $_POST['descricao'];
-        $produto['categoria'] = $_POST['categoria'];
-        $produto['observacao'] = $_POST['observacao'];
-        $produto['preco'] = $_POST['preco'];
-        $produto['quantidade'] = $_POST['quantidade'];
-        $produto['imagem'] = "padrao.png";
-
     if($_FILES['imagem']['size'] > 0){
         $imagem = $_FILES['imagem'];
 
         if($imagem['type'] == "image/jpg" || $imagem['type'] == "image/jpeg" || $imagem['type'] == "image/png" || $imagem['type'] == "image/gif" || $imagem['type'] == "image/bmp"){
+            $produto['nome'] = $_POST['nome'];
+            $produto['descricao'] = $_POST['descricao'];
+            $produto['observacao'] = $_POST['observacao'];
+            $produto['quantidade'] = $_POST['quantidade'];
+            $produto['categoria'] = $_POST['categoria'];
+            $produto['preco'] = $_POST['preco'];
             
             $nomeTemp = $imagem['tmp_name'];
             $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
@@ -34,6 +32,13 @@
             header('Location:../adminProdutos.php?msg=erroimagem');
         }
     }else{
+        $produto['nome'] = $_POST['nome'];
+        $produto['descricao'] = $_POST['descricao'];
+        $produto['observacao'] = $_POST['observacao'];
+        $produto['quantidade'] = $_POST['quantidade'];
+        $produto['preco'] = $_POST['preco'];
+        $produto['categoria'] = $_POST['categoria'];
+        $produto['imagem'] = "padrao.png";
 
         $produtoDAO = new ProdutoDAO();
         $produtoDAO->insert($produto);

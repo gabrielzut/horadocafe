@@ -50,6 +50,49 @@
             return lerResultado($resultado);
         }
 
+        function listarCategoria($categoria){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE categoria = ? AND id != 1;";
+            $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"i",$categoria);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listar4Categoria($categoria){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE categoria = ? AND id != 1 ORDER BY RAND() LIMIT 4;";
+            $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"i",$categoria);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listarNovos(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY id DESC;";
+            $stmt = mysqli_prepare($conexao,$query);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listar4Novos(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY id DESC LIMIT 4;";
+            $stmt = mysqli_prepare($conexao,$query);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+
         function get($id){
             $conexao = conectar();
             $query = "SELECT * FROM Produto WHERE id = ?;";

@@ -25,7 +25,7 @@
                 $busca = $_GET['busca'];
             }
         ?>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="container">
                 <div class="row my-5">
                     <div class="col-8">
@@ -118,83 +118,78 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                            <div class="form-group col-12">
-                                <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
-                            </div>
-                            </div>
-
-                            <div class="row">
-                            <div class="form-group col-12">
-                                <label for="descricao">Descrição: </label>
-                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
-                            </div>
+                                <div class="form-group col-12">
+                                    <label for="nome">Nome: </label>
+                                    <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
+                                </div>
                             </div>
 
                             <div class="row">
-                            <div class="form-group col-10">
-                                <label for="categoria">Categoria: </label>
-                                <select name="categoria" form="cadProd" id="categoria" class="form-control"required>
-                                    <?php
-                                    $categoriaDAO = new CategoriaDAO();
-                                    $categorias = $categoriaDAO->listar();
-                                    if(count($categorias) == 0){
-                                        ?>
-                                        
-                                        <?php 
-                                    }else{
-                                        foreach($categorias as $categoria){
-                                            ?>
-                                            <option value="<?php echo $categoria['id'];?>" > <?php echo $categoria['nome'];?> </option>
-                                            <?php
+                                <div class="form-group col-12">
+                                    <label for="descricao">Descrição: </label>
+                                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-10">
+                                    <label for="categoria">Categoria: </label>
+                                    <select name="categoria" form="cadProd" id="categoria" class="form-control" required>
+                                        <?php
+                                        $categoriaDAO = new CategoriaDAO();
+                                        $categorias = $categoriaDAO->listar();
+                                        if(count($categorias) != 0){
+                                            foreach($categorias as $categoria){
+                                                ?>
+                                                <option value="<?php echo $categoria['id'];?>"> <?php echo $categoria['nome'];?> </option>
+                                                <?php
+                                            }
                                         }
-                                    }
-                                ?>
-                                </select>
-                            </div>
+                                    ?>
+                                    </select>
+                                </div>
 
-                            <div class="form-group col-2">
-                                <label for="addCategoria">Add </label>
-                                <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
-                            </div>
+                                <div class="form-group col-2">
+                                    <label for="addCategoria">Add </label>
+                                    <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
+                                </div>
                             </div>
                                 
                             <div class="row"> 
-                            <div class="form-group col-12">
-                                <label for="observacao">Observação: </label>
-                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
-                            </div>
+                                <div class="form-group col-12">
+                                    <label for="observacao">Observação: </label>
+                                    <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
+                                </div>
                             </div>   
 
                             <div class="row">
-                            <div class="form-group col-6">
-                                <label for="preco">Preço: </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">R$</div>
+                                <div class="form-group col-6">
+                                    <label for="preco">Preço: </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">R$</div>
+                                        </div>
+                                        <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco" required>
                                     </div>
-                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.10" placeholder="0,00" name="preco" required>
                                 </div>
-                            </div>
 
-                             <div class="form-group col-6">
-                                <label for="quantidade">Quantidade: </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">UN</div>
+                                <div class="form-group col-6">
+                                    <label for="quantidade">Quantidade: </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">UN</div>
+                                        </div>
+                                        <input type="number" class="form-control" id="quantidade" min="0.00" step="1.00" placeholder="0" name="quantidade" required>
                                     </div>
-                                    <input type="number" class="form-control" id="quantidade" min="0.00" step="1.00" placeholder="0" name="quantidade" required>
                                 </div>
-                            </div>
                             </div>
 
                             <div class="row">
-                            <div class="form-group col-12">
-                                <label for="imagem">Imagem: </label>
-                                <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
+                                <div class="form-group col-12">
+                                    <label for="imagem">Imagem: </label>
+                                    <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
+                                </div>
                             </div>
-                            </div>
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -216,81 +211,77 @@
 
                         <div class="modal-body">
                             <div class="row">
-                            <div class="form-group col-12">
-                                <label for="nome">Nome: </label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
-                            </div>
-                            </div>
-
-                            <div class="row">
-                            <div class="form-group col-12">
-                                <label for="descricao">Descrição: </label>
-                                <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
-                            </div>
+                                <div class="form-group col-12">
+                                    <label for="nome">Nome: </label>
+                                    <input type="text" class="form-control" id="nome" placeholder="Nome do produto" name="nome" required>
+                                </div>
                             </div>
 
                             <div class="row">
-                            <div class="form-group col-10">
-                                <label for="categoria">Categoria: </label>
-                                <select name="categoria" form="altProd" id="categoria" class="form-control"required>
-                                    <?php
-                                    $categoriaDAO = new CategoriaDAO();
-                                    $categorias = $categoriaDAO->listar();
-                                    if(count($categorias) == 0){
-                                        ?>
-                                        
-                                        <?php 
-                                    }else{
-                                        foreach($categorias as $categoria){
-                                            ?>
-                                            <option value="<?php echo $categoria['id'];?>" > <?php echo $categoria['nome'];?> </option>
-                                            <?php
+                                <div class="form-group col-12">
+                                    <label for="descricao">Descrição: </label>
+                                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto" name="descricao" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-10">
+                                    <label for="categoria">Categoria: </label>
+                                    <select name="categoria" form="altProd" id="categoria" class="form-control"required>
+                                        <?php
+                                        $categoriaDAO = new CategoriaDAO();
+                                        $categorias = $categoriaDAO->listar();
+                                        if(count($categorias) != 0){
+                                            foreach($categorias as $categoria){
+                                                ?>
+                                                <option value="<?php echo $categoria['id'];?>" > <?php echo $categoria['nome'];?> </option>
+                                                <?php
+                                            }
                                         }
-                                    }
-                                ?>
-                                </select>
-                            </div>
+                                    ?>
+                                    </select>
+                                </div>
 
-                            <div class="form-group col-2">
-                                <label for="addCategoria">Add </label>
-                                <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
-                            </div>
+                                <div class="form-group col-2">
+                                    <label for="addCategoria">Add </label>
+                                    <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
+                                </div>
                             </div>
                                 
                             <div class="row"> 
-                            <div class="form-group col-12">
-                                <label for="observacao">Observação: </label>
-                                <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
-                            </div>
+                                <div class="form-group col-12">
+                                    <label for="observacao">Observação: </label>
+                                    <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
+                                </div>
                             </div>   
 
                             <div class="row">
-                            <div class="form-group col-6">
-                                <label for="preco">Preço: </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">R$</div>
+                                <div class="form-group col-6">
+                                    <label for="preco">Preço: </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">R$</div>
+                                        </div>
+                                        <input type="number" class="form-control" id="preco" min="0.00" step="0.01" placeholder="0,00" name="preco" required>
                                     </div>
-                                    <input type="number" class="form-control" id="preco" min="0.00" step="0.10" placeholder="0,00" name="preco" required>
                                 </div>
-                            </div>
 
-                             <div class="form-group col-6">
-                                <label for="quantidade">Quantidade: </label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">UN</div>
+                                <div class="form-group col-6">
+                                    <label for="quantidade">Quantidade: </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">UN</div>
+                                        </div>
+                                        <input type="number" class="form-control" id="quantidade" min="0.00" step="1.00" placeholder="0" name="quantidade" required>
                                     </div>
-                                    <input type="number" class="form-control" id="quantidade" min="0.00" step="1.00" placeholder="0" name="quantidade" required>
                                 </div>
-                            </div>
                             </div>
 
                             <div class="row">
-                            <div class="form-group col-12">
-                                <label for="imagem">Imagem: </label>
-                                <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
-                            </div>
+                                <div class="form-group col-12">
+                                    <label for="imagem">Imagem: </label>
+                                    <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
+                                </div>
                             </div>
 
                         </div>
@@ -299,8 +290,6 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-warning">Enviar</button>
                         </div>
-
-
                     </div>
                 </div>
             </form>
