@@ -40,7 +40,7 @@
                                 <div class="col">
                                     <button type="submit" class="btn btn-warning">Buscar</button>
                                     <?php if($busca != ""){?>
-                                        <button type="button" onclick="window.location.href='adminUsuarios.php';" class="btn btn-warning">Voltar</button>
+                                        <button type="button" onclick="window.location.href='adminProdutos.php';" class="btn btn-warning">Voltar</button>
                                     <?php }?>
                                 </div>
                             </div>
