@@ -76,7 +76,7 @@
                                 foreach($produtos as $produto){?>
                                     <div class="col px-0 mb-4">
                                         <div class="card cardproduto">
-                                            <img class="card-img-top" src="imgProduto/padrao.png">
+                                            <img class="card-img-top" src="imgProduto/<?php echo $produto['imagem']; ?>">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $produto['descricao']; ?></p>

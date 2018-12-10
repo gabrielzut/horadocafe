@@ -93,7 +93,7 @@
                                 foreach($novidades as $novidade){?>
                                     <div class="col px-0 mb-4">
                                         <div class="card cardproduto mt-4">
-                                            <img class="card-img-top" src="imgProduto/padrao.png">
+                                            <img class="card-img-top" src="imgProduto/<?php echo $novidade['imagem']; ?>">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $novidade['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $novidade['descricao']; ?></p>
@@ -136,7 +136,7 @@
                                     foreach($produtos as $produto){?>
                                         <div class="col px-0 mb-4">
                                             <div class="card cardproduto mt-4">
-                                                <img class="card-img-top" src="imgProduto/padrao.png">
+                                                <img class="card-img-top" src="imgProduto/<?php echo $produto['imagem']; ?>">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                     <p class="card-text"><?php echo $produto['descricao']; ?></p>
@@ -173,7 +173,7 @@
                                 foreach($produtos as $produto){?>
                                     <div class="col px-0 mb-4">
                                         <div class="card cardproduto mt-4">
-                                            <img class="card-img-top" src="imgProduto/padrao.png">
+                                            <img class="card-img-top" src="imgProduto/<?php echo $produto['imagem']; ?>">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $produto['descricao']; ?></p>
