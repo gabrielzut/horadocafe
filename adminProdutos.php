@@ -27,11 +27,11 @@
         ?>
         <div class="container-fluid pb-5">
             <div class="container">
-                <div class="row my-5">
-                    <div class="col-8">
+                <div class="row mt-5">
+                    <div class="col-12 col-md-8 mb-3">
                         <h1 class="text-center">Área administrativa - Produtos</h1>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-md-4 offset-2 offset-md-0 mb-5">
                         <form action="adminProdutos.php" method="GET">
                             <div class="form-row">
                                 <div class="col">
@@ -132,7 +132,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group col-10">
+                                <div class="form-group col-9 col-md-10">
                                     <label for="categoria">Categoria: </label>
                                     <select name="categoria" form="cadProd" id="categoria" class="form-control" required>
                                         <?php
@@ -149,8 +149,8 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-2">
-                                    <label for="addCategoria">Add </label>
+                                <div class="form-group col-3 col-md-2">
+                                    <label for="addCategoria">                   </label>
                                     <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                             </div>   
 
                             <div class="row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="preco">Preço: </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group col-6">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="quantidade">Quantidade: </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -225,7 +225,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group col-10">
+                                <div class="form-group col-9 col-md-10">
                                     <label for="categoria">Categoria: </label>
                                     <select name="categoria" form="altProd" id="categoria" class="form-control"required>
                                         <?php
@@ -242,8 +242,8 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-2">
-                                    <label for="addCategoria">Add </label>
+                                <div class="form-group col-3 col-md-2">
+                                    <label for="addCategoria">                   </label>
                                     <button type="button" id="addCategoria" class="btn btn-success" data-toggle="modal" data-target="#modalAddCategoria"><b>+</b></button>
                                 </div>
                             </div>
@@ -256,7 +256,7 @@
                             </div>   
 
                             <div class="row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="preco">Preço: </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -266,7 +266,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group col-6">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="quantidade">Quantidade: </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">

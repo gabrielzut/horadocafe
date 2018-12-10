@@ -9,6 +9,7 @@
 
         <script src="lib/jquery-3.3.1.min.js"></script>
         <script src="js/modalIndex.js"></script>
+        <script src="js/uploadImagem.js"></script>
 
         <?php require "php/DAO/ProdutoDAO.php"; 
         require "php/DAO/CategoriaDAO.php"; ?>
@@ -25,6 +26,39 @@
                     <li data-target="#carouselAnuncio" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
+                    <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){ ?>
+                    <form action="php/alterarCarousel.php" method="POST" id="formCarousel" enctype="multipart/form-data">
+                        <div class="carousel-item active">
+                            <label for="imagem1">
+                                <div class="slides">
+                                    <img class="d-block slides" src="img/slide1.jpg">
+                                </div>
+                            </label>
+                        </div>
+
+                        <input id="imagem1" name="imagem1" type="file" accept="image/*" style="display: none;">
+
+                        <div class="carousel-item">
+                            <label for="imagem2">
+                                <div class="slides">
+                                    <img class="d-block slides" src="img/slide2.jpg">
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <input id="imagem2" name="imagem2" type="file" accept="image/*" style="display: none;">
+
+                        <div class="carousel-item">
+                            <label for="imagem3">
+                                <div class="slides">
+                                    <img class="d-block slides" src="img/slide3.jpg">
+                                </div>
+                            </label>
+                        </div>
+
+                        <input id="imagem3" name="imagem3" type="file" accept="image/*" style="display: none;">
+                    </form>
+                    <?php }else{ ?>
                     <div class="carousel-item active">
                         <img class="d-block" src="img/slide1.jpg">
                     </div>
@@ -34,6 +68,7 @@
                     <div class="carousel-item">
                         <img class="d-block" src="img/slide3.jpg">
                     </div>
+                    <?php } ?>
                 </div>
                 <a class="carousel-control-prev" href="#carouselAnuncio" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,13 +91,15 @@
 
                             if(count($novidades) != 0){
                                 foreach($novidades as $novidade){?>
-                                    <div class="col px-0">
+                                    <div class="col px-0 mb-4">
                                         <div class="card cardproduto mt-4">
                                             <img class="card-img-top" src="imgProduto/padrao.png">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $novidade['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $novidade['descricao']; ?></p>
-                                                <a href="detalhes.php?id=<?php echo $novidade['id']; ?>" class="btn btn-warning">Ver</a>
+                                            </div>
+                                            <div class="card-footer">
+                                                <p class="text-center"><a href="detalhes.php?id=<?php echo $novidade['id']; ?>" class="btn btn-warning">Detalhes</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -97,13 +134,15 @@
 
                                 if(count($produtos) != 0){
                                     foreach($produtos as $produto){?>
-                                        <div class="col px-0">
+                                        <div class="col px-0 mb-4">
                                             <div class="card cardproduto mt-4">
                                                 <img class="card-img-top" src="imgProduto/padrao.png">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                     <p class="card-text"><?php echo $produto['descricao']; ?></p>
-                                                    <a href="detalhes.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Ver</a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <p class="text-center"><a href="detalhes.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Detalhes</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,17 +167,19 @@
                     <div class="row">
                         <?php
                             $produtoDAO = new ProdutoDAO();
-                            $produtos = $produtoDAO->listar("");
+                            $produtos = $produtoDAO->listar4Aleatorios();
 
                             if(count($produtos) != 0){
                                 foreach($produtos as $produto){?>
-                                    <div class="col px-0">
+                                    <div class="col px-0 mb-4">
                                         <div class="card cardproduto mt-4">
                                             <img class="card-img-top" src="imgProduto/padrao.png">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $produto['descricao']; ?></p>
-                                                <a href="detalhes.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Ver</a>
+                                            </div>
+                                            <div class="card-footer">
+                                                <p class="text-center"><a href="detalhes.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Detalhes</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +193,7 @@
                                     </div>
                                 </div>
                             <?php }
-                        ?>
+                            ?>
                     </div>
                 </div>
             </div>
@@ -161,7 +202,7 @@
 
         <div class="modal fade" id="modal<?php 
             if(isset($_GET['msg'])){
-                if($_GET['msg'] == "errosenha" || $_GET['msg'] == "sucessopedido" || $_GET['msg'] == "sucesso" || $_GET['msg'] == "errologin" || $_GET['msg'] == "negadouser" || $_GET['msg'] == "negadoadmin"){
+                if($_GET['msg'] == "errosenha" || $_GET['msg'] == "sucessopedido" || $_GET['msg'] == "sucesso" || $_GET['msg'] == "errologin" || $_GET['msg'] == "negadouser" || $_GET['msg'] == "negadoadmin" || $_GET['msg'] == "erroImagem" || $_GET['msg'] == "sucessoImagem"){
                     echo "Msg";
         ?>" tabindex="-1" role="dialog" aria-labelledby="modalMsg" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -194,6 +235,14 @@
                                 }
                                 case "sucesso":{ ?>
                                     <p>Cadastro feito com sucesso!</p>
+                                <?php break;
+                                }
+                                case "erroImagem":{ ?>
+                                    <p><span class="font-weight-bold">Erro:</span> o formato da imagem enviada não é suportado!</p>
+                                <?php break;
+                                }
+                                case "sucessoImagem":{ ?>
+                                    <p>Imagem alterada com sucesso!</p>
                                 <?php break;
                                 }
                             }

@@ -21,10 +21,7 @@
             $nomeTemp = $imagem['tmp_name'];
             $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
 
-            $ultimoId = $produtoDAO->lastId();
-
-            $id = $ultimoId['auto_increment'];
-            $produto['imagem'] = $id . "." . $extensao;
+            $produto['imagem'] = $produto['id'] . "." . $extensao;
 
             move_uploaded_file($nomeTemp, '../imgProduto/' . $produto['imagem']);
 

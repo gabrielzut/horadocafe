@@ -82,6 +82,16 @@
             return lerResultado($resultado);
         }
 
+        function listar4Aleatorios(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY RAND() LIMIT 4;";
+            $stmt = mysqli_prepare($conexao,$query);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
         function listar4Novos(){
             $conexao = conectar();
             $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY id DESC LIMIT 4;";

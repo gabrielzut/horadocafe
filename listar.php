@@ -74,12 +74,14 @@
                         <?php
                             if(count($produtos) != 0){
                                 foreach($produtos as $produto){?>
-                                    <div class="col px-0">
-                                        <div class="card cardproduto mt-4">
+                                    <div class="col px-0 mb-4">
+                                        <div class="card cardproduto">
                                             <img class="card-img-top" src="imgProduto/padrao.png">
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $produto['nome']; ?></h5>
                                                 <p class="card-text"><?php echo $produto['descricao']; ?></p>
+                                            </div>
+                                            <div class="card-footer">
                                                 <a href="detalhes.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Ver</a>
                                             </div>
                                         </div>
