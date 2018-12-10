@@ -92,10 +92,10 @@
                                 ?>
                             </div>
                             <a id="prev" class="carousel-control-prev" href="#carouselFeedback" role="button" data-slide="prev">
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Anterior</span>
                             </a>
                             <a id="next" class="carousel-control-next" href="#carouselFeedback" role="button" data-slide="next">
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Próximo</span>
                             </a>
                         </div>
                         <?php if(isset($_SESSION['nome'])){ ?>

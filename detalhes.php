@@ -47,18 +47,31 @@
                                 <form method="POST" action="php/adicionarCarrinho.php">
                                     <input type="hidden" name="idproduto" value="<?php echo $_GET['id'] ?>">
                                     <div class="row">
-                                        <?php if(isset($_SESSION['nome'])) {?>
-                                            <div class="col-4">
-                                                <input type="number" class="form-control" value="1" min="1" step="1" id="quantidade" name="quantidade" required>
-                                            </div>
-                                            <div class="col-3">
-                                                <button type="submit" class="btn btn-warning">Comprar</button>
-                                            </div>
-                                        <?php }else{?>
-                                            <div class="col my-2">
-                                                <span class="alert alert-warning">Você precisa estar logado para adicionar ao seu carrinho!</span>
-                                            </div>
-                                        <?php }?>
+                                        <?php 
+                                            if(isset($_SESSION['nome'])) {
+                                                if($produto['quantidade'] > 0){?>
+                                                    <div class="col-4">
+                                                        <input type="number" class="form-control" value="1" min="1" max="<?php echo $produto['quantidade'] ?>" step="1" id="quantidade" name="quantidade" required>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button type="submit" class="btn btn-warning">Comprar</button>
+                                                    </div>
+                                        <?php 
+                                                }else{
+                                        ?>
+                                                    <div class="col my-2">
+                                                        <span class="alert alert-warning">Produto fora de estoque.</span>
+                                                    </div>
+                                        <?php
+                                                }
+                                            }else{ 
+                                        ?>
+                                                <div class="col my-2">
+                                                    <span class="alert alert-warning">Você precisa estar logado para adicionar ao seu carrinho!</span>
+                                                </div>
+                                        <?php 
+                                            } 
+                                        ?>
                                     </div>
                                 </form>
                             </div>
@@ -118,10 +131,10 @@
                                 ?>
                             </div>
                             <a id="prev" class="carousel-control-prev" href="#carouselFeedback" role="button" data-slide="prev">
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Anterior</span>
                             </a>
                             <a id="next" class="carousel-control-next" href="#carouselFeedback" role="button" data-slide="next">
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Próximo</span>
                             </a>
                         </div>
                         <?php if(isset($_SESSION['nome'])){ ?>

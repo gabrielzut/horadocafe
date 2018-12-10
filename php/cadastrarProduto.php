@@ -11,6 +11,8 @@
             $produto['nome'] = $_POST['nome'];
             $produto['descricao'] = $_POST['descricao'];
             $produto['observacao'] = $_POST['observacao'];
+            $produto['quantidade'] = $_POST['quantidade'];
+            $produto['categoria'] = $_POST['categoria'];
             $produto['preco'] = $_POST['preco'];
             
             $nomeTemp = $imagem['tmp_name'];
@@ -33,7 +35,9 @@
         $produto['nome'] = $_POST['nome'];
         $produto['descricao'] = $_POST['descricao'];
         $produto['observacao'] = $_POST['observacao'];
+        $produto['quantidade'] = $_POST['quantidade'];
         $produto['preco'] = $_POST['preco'];
+        $produto['categoria'] = $_POST['categoria'];
         $produto['imagem'] = "padrao.png";
 
         $produtoDAO = new ProdutoDAO();

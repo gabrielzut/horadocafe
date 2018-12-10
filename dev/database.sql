@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS Produto (
     nome VARCHAR(128) NOT NULL,
     observacao VARCHAR(128) NOT NULL,
     descricao VARCHAR(512) NOT NULL,
+    categoria VARCHAR(128) NOT NULL,
+    quantidade INT NOT NULL DEFAULT 0,
     preco DOUBLE NOT NULL,
     imagem VARCHAR(256) DEFAULT "padrao.png" NOT NULL,
     PRIMARY KEY(id)

@@ -27,8 +27,6 @@
 
         $origem = $_POST['origem'] == "perfil" ? "Location:../perfil.php?msg=sucesso" : "Location:../adminUsuarios.php?msg=sucesso";
 
-        print_r($usuario);
-
         $usuarioDAO->update($usuario);
 
         if($usuario['email'] == $_SESSION['email']){

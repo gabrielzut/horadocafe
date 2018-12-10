@@ -86,7 +86,7 @@
 
             if(count($arrayResultado) > 0){
                 $pedido = $arrayResultado[0];
-                $pedido['produtos'] = getProdutos($id);
+                $pedido['produtos'] = $this->getProdutos($id);
             }
 
             return $pedido;

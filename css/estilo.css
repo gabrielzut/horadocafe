@@ -4,25 +4,31 @@ html {
 }
 
 body {
-  height: 100%; 
-  display: grid;
+  margin-bottom: 112px;
 }
 
-.pagina100{
+@media only screen and (max-width:768px){
+  body {
+    margin-bottom: 290px;
+  }
+} 
+
+.pagina100 {
   height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-.titles{
+.titles {
   font-family: "Verdana";
   font-weight: bold;
   font-size: 30px;
 }
 
-footer {
+.footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  padding-top: 15px;
 }
 
 .navbar a {
@@ -59,4 +65,23 @@ footer {
 
 .dropdown-item.active, .dropdown-item:active{
   background-color: #ffc107;
+}
+
+#carouselAnuncio .carousel-item{
+  height: 300px;
+  overflow: hidden;
+  width: 100%;
+}
+
+#carouselAnuncio .carousel-item img {
+  width: 100%;
+  min-height: 300px;
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+.cardproduto{
+  width: 220px;
 }

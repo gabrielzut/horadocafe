@@ -24,13 +24,13 @@
                 $busca = $_GET['busca'];
             }
         ?>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="container">
-                <div class="row my-5">
-                    <div class="col-8">
+                <div class="row mt-5">
+                    <div class="col-12 col-md-8 mb-3">
                         <h1 class="text-center">Área administrativa - Produtos</h1>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-md-4 offset-2 offset-md-0 mb-5">
                         <form action="adminProdutos.php" method="GET">
                             <div class="form-row">
                                 <div class="col">
@@ -76,6 +76,7 @@
                                         <h5 class="font-weight-bold"><?php echo $produto['nome']; ?></h5>
                                         <p><?php echo $produto['descricao']; ?></p>
                                         <h6><?php echo "R$" . number_format($produto['preco'], 2, ',', ''); ?></h6>
+                                        <small><?php echo $produto['quantidade'] . " disponíveis"; ?></small>
                                     </div>
                                     <div class="col-12 col-md-2 text-center text-md-right">
                                         <button type="button" class="btn btn-warning btn-sm alterar" data-toggle="modal" id="alterar" data-target="#modalAlterar">Alterar</button>
@@ -88,6 +89,8 @@
                                         <div class="descricao" style="display: none;"><?php echo $produto['descricao']; ?></div>
                                         <div class="observacao" style="display: none;"><?php echo $produto['observacao']; ?></div>
                                         <div class="preco" style="display: none;"><?php echo $produto['preco']; ?></div>
+                                        <div class="categoria" style="display: none;"><?php echo $produto['categoria']; ?></div>
+                                        <div class="quantidade" style="display: none;"><?php echo $produto['quantidade']; ?></div>
                                     </div>
                                 </div>
                             </li>
@@ -119,6 +122,20 @@
                             <div class="form-group">
                                 <label for="observacao">Observação: </label>
                                 <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade: </label>
+                                <input type="number" class="form-control" id="quantidade" placeholder="Quantidade em estoque" name="quantidade" min="1" step="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria: </label>
+                                <select class="form-control" name="categoria" required>
+                                    <option value="salgados">Salgados</option>
+                                    <option value="lanches">Lanches</option>
+                                    <option value="pratos">Pratos</option>
+                                    <option value="bebidas">Bebidas</option>
+                                    <option value="guloseimas">Guloseimas</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="preco">Preço: </label>
@@ -162,6 +179,20 @@
                             <div class="form-group">
                                 <label for="observacao">Observação: </label>
                                 <input type="text" class="form-control" id="observacao" placeholder="Observação do produto" name="observacao" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade: </label>
+                                <input type="number" class="form-control" id="quantidade" placeholder="Quantidade em estoque" name="quantidade" min="1" step="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria: </label>
+                                <select class="form-control" name="categoria" id="categoria" required>
+                                    <option value="salgados">Salgados</option>
+                                    <option value="lanches">Lanches</option>
+                                    <option value="pratos">Pratos</option>
+                                    <option value="bebidas">Bebidas</option>
+                                    <option value="guloseimas">Guloseimas</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="preco">Preço: </label>

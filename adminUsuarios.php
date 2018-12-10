@@ -24,13 +24,13 @@
                 $busca = $_GET['busca'];
             }
         ?>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="container">
-                <div class="row my-5">
-                    <div class="col-8">
+                <div class="row mt-5">
+                    <div class="col-12 col-md-8 mb-3">
                         <h1 class="text-center">Área administrativa - Usuários</h1>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-md-4 offset-2 offset-md-0 mb-5">
                         <form action="adminUsuarios.php" method="GET">
                             <div class="form-row">
                                 <div class="col">

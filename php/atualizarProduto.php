@@ -7,7 +7,9 @@
     $produto['id'] = $_POST['id'];
     $produto['nome'] = $_POST['nome'];
     $produto['descricao'] = $_POST['descricao'];
+    $produto['quantidade'] = $_POST['quantidade'];
     $produto['observacao'] = $_POST['observacao'];
+    $produto['categoria'] = $_POST['categoria'];
     $produto['preco'] = $_POST['preco'];
 
     $produtoDAO = new ProdutoDAO();

@@ -18,7 +18,7 @@
     </head>
     <body>
         <?php require_once "php/imprimeNav.php"?>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5">
             <div class="container">
                 <div class="row my-5">
                     <div class="col">
@@ -51,7 +51,8 @@
                                             $produtos = substr($produtos,0,-2);
                                             echo $produtos;
                                         ?></p>
-                                        <h6><?php echo $pedido['data']?></h6>
+                                        <p>Descrição: <?php echo $pedido['descricao']; ?></p>
+                                        <h6><?php echo $pedido['data']; ?></h6>
                                     </div>
                                     <div class="col-12 col-md-2 text-center text-md-right">
                                         <form method="POST" action="php/atenderPedido.php"?>
@@ -68,6 +69,7 @@
                 </ul>
             </div>
         </div>
+
         <?php require_once "php/imprimeFooter.php"?>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

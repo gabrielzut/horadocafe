@@ -4,18 +4,18 @@
     class ProdutoDAO{
         function insert($produto){
             $conexao = conectar();
-            $query = "INSERT INTO Produto(nome,observacao,descricao,preco,imagem) VALUES (?,?,?,?,?);";
+            $query = "INSERT INTO Produto(nome,observacao,descricao,quantidade,categoria,preco,imagem) VALUES (?,?,?,?,?,?,?);";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"sssds",$produto['nome'],$produto['observacao'],$produto['descricao'],$produto['preco'],$produto['imagem']);
+            mysqli_stmt_bind_param($stmt,"sssisds",$produto['nome'],$produto['observacao'],$produto['descricao'],$produto['quantidade'],$produto['categoria'],$produto['preco'],$produto['imagem']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }
 
         function updateProduto($produto){
             $conexao = conectar();
-            $query = "UPDATE Produto SET nome = ?, observacao = ?, descricao = ?, preco = ? WHERE id = ?;";
+            $query = "UPDATE Produto SET nome = ?, observacao = ?, descricao = ?, quantidade = ?, categoria = ?, preco = ? WHERE id = ?;";
             $stmt = mysqli_prepare($conexao,$query);
-            mysqli_stmt_bind_param($stmt,"sssdi",$produto['nome'],$produto['observacao'],$produto['descricao'],$produto['preco'],$produto['id']);
+            mysqli_stmt_bind_param($stmt,"sssisdi",$produto['nome'],$produto['observacao'],$produto['descricao'], $produto['quantidade'], $produto['categoria'], $produto['preco'],$produto['id']);
             executar_SQL($conexao,$stmt);
             desconectar($conexao);
         }
@@ -44,6 +44,48 @@
             $query = "SELECT * FROM Produto WHERE UPPER(nome) LIKE UPPER(?) AND id != 1;";
             $stmt = mysqli_prepare($conexao,$query);
             mysqli_stmt_bind_param($stmt,"s",$busca);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listarCategoria($categoria){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE categoria = ? AND id != 1;";
+            $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"s",$categoria);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listar4Categoria($categoria){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE categoria = ? AND id != 1 ORDER BY RAND() LIMIT 4;";
+            $stmt = mysqli_prepare($conexao,$query);
+            mysqli_stmt_bind_param($stmt,"s",$categoria);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listarNovos(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY id DESC;";
+            $stmt = mysqli_prepare($conexao,$query);
+            $resultado = executar_SQL($conexao,$stmt);
+            desconectar($conexao);
+
+            return lerResultado($resultado);
+        }
+
+        function listar4Novos(){
+            $conexao = conectar();
+            $query = "SELECT * FROM Produto WHERE id != 1 ORDER BY id DESC LIMIT 4;";
+            $stmt = mysqli_prepare($conexao,$query);
             $resultado = executar_SQL($conexao,$stmt);
             desconectar($conexao);
 
